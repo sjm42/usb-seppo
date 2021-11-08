@@ -1,0 +1,45 @@
+#!/bin/bash
+set -e
+
+usage()
+{
+    echo "Usage: $0 <build | clippy | flash>  <bluepill | nucleo_f411>"
+    exit 1
+}
+
+case "$2" in
+b*)
+    feat="blue_pill"
+    tgt="thumbv7m-none-eabi"
+    chip="STM32F103C8"
+    ;;
+n*)
+    feat="nucleo_f411"
+    tgt="thumbv7em-none-eabihf"
+    chip="STM32F411RETx"
+    ;;
+*)
+    usage
+    ;;
+esac
+
+flags="--release --no-default-features --features $feat --target $tgt"
+case "$1" in
+b*)
+    set -x
+    cargo build $flags
+    ;;
+c*)
+    set -x
+    cargo clippy $flags
+    ;;
+f*)
+    set -x
+    cargo flash $flags --chip $chip
+    ;;
+*)
+    usage
+    ;;
+esac
+exit 0
+# EOF
