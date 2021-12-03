@@ -12,16 +12,13 @@ blue_pill = ["stm32f1xx-hal"]
 [dependencies.stm32f1xx-hal]
 optional = true
 features = ["stm32f103", "rt", "stm32-usbd"]
-# version = "0.7"
-# git = "https://github.com/stm32-rs/stm32f1xx-hal.git"
-path = "../00ext/stm32f1xx-hal"
+version = "0"
+git = "https://github.com/stm32-rs/stm32f1xx-hal.git"
 
 [dependencies]
 cortex-m = "0"
 cortex-m-rt = "0"
-# cortex-m-rtic = "0.5"
-# cortex-m-rtic = { git = "https://github.com/rtic-rs/cortex-m-rtic.git" }
-cortex-m-rtic = { path = "../00ext/cortex-m-rtic" }
+cortex-m-rtic = "0"
 systick-monotonic = { git = "https://github.com/rtic-rs/systick-monotonic.git" }
 cortex-m-semihosting = "0"
 embedded-hal = "0"
