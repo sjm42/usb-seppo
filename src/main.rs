@@ -6,17 +6,17 @@
 // #![deny(unsafe_code)]
 // #![deny(warnings)]
 
-use panic_semihosting as _;
+use panic_halt as _;
 
 #[rtic::app(device = stm32f1xx_hal::pac, peripherals = true, dispatchers = [DMA1_CHANNEL1, DMA1_CHANNEL2, DMA1_CHANNEL3])]
 mod app {
-
     use cortex_m::asm;
-    use rtic::rtic_monotonic::Milliseconds;
-    use stm32f1xx_hal::gpio::{ErasedPin, Output, PushPull};
-    use stm32f1xx_hal::prelude::*;
-    use stm32f1xx_hal::usb::{Peripheral, UsbBus, UsbBusType};
-    use systick_monotonic::Systick;
+    use hal::gpio::{ErasedPin, Output, PushPull};
+    use hal::prelude::*;
+    use hal::usb::{Peripheral, UsbBus, UsbBusType};
+    use stm32f1xx_hal as hal;
+    use systick_monotonic::fugit::*;
+    use systick_monotonic::*;
     use usb_device::prelude::*;
 
     #[monotonic(binds=SysTick, default=true)]
@@ -126,10 +126,10 @@ mod app {
         let mut led = cx.shared.led;
 
         (&mut led, &mut led_on).lock(|led, led_on| {
-            if *led_on == false {
+            if !(*led_on) {
                 led.set_low();
                 *led_on = true;
-                led_off::spawn_after(Milliseconds(50u32)).ok();
+                led_off::spawn_after(50u64.millis()).ok();
             }
         });
     }
@@ -197,9 +197,9 @@ mod app {
                 }
                 serial.write(&buf[0..count]).ok();
                 led_blink::spawn().ok();
-                if *seppo == false {
+                if !(*seppo) {
                     // Summon Seppo!
-                    seppo::spawn_after(Milliseconds(5000u32)).ok();
+                    seppo::spawn_after(5000u64.millis()).ok();
                     *seppo = true;
                 }
             }
