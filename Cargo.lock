@@ -157,9 +157,9 @@ dependencies = [
 
 [[package]]
 name = "embedded-dma"
-version = "0.1.2"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "46c8c02e4347a0267ca60813c952017f4c5948c232474c6010a381a337f1bda4"
+checksum = "994f7e5b5cb23521c22304927195f236813053eb9c065dd2226a32ba64695446"
 dependencies = [
  "stable_deref_trait",
 ]
@@ -461,8 +461,8 @@ dependencies = [
 
 [[package]]
 name = "stm32f1xx-hal"
-version = "0.8.0"
-source = "git+https://github.com/stm32-rs/stm32f1xx-hal.git#f30cb81730ea6289cac77e8f96089846bf2cf667"
+version = "0.9.0"
+source = "git+https://github.com/stm32-rs/stm32f1xx-hal.git#8e6cbd436b5c35a7cd159fc0ad24f627aecf5f75"
 dependencies = [
  "bitflags",
  "bxcan",
