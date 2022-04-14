@@ -116,9 +116,9 @@ dependencies = [
 
 [[package]]
 name = "cortex-m-rtic"
-version = "1.1.0"
+version = "1.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "58256ecbc0008bd47e8b98da5313f076072b0d7eb3c7f7439a11de05a8ab2751"
+checksum = "aaaec064590e0f24c3b699337e3c223ba0c7855adb0b33915a48cc1c1a44904c"
 dependencies = [
  "bare-metal 1.0.0",
  "cortex-m",
@@ -131,9 +131,9 @@ dependencies = [
 
 [[package]]
 name = "cortex-m-rtic-macros"
-version = "1.0.0"
+version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7ba355d1639cf8df7c0658f01bd8952d11d49a029309118787eb54afc47a6cf8"
+checksum = "7671d1bfc0fc110931984ec6dad760c3f1e9159fd3c022a696afc20485f1471e"
 dependencies = [
  "proc-macro-error",
  "proc-macro2",
