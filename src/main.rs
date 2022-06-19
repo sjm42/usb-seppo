@@ -8,14 +8,14 @@
 
 use panic_halt as _;
 
-#[rtic::app(device = stm32f1xx_hal::pac, peripherals = true, dispatchers = [DMA1_CHANNEL1, DMA1_CHANNEL2, DMA1_CHANNEL3])]
+#[rtic::app(device = hal::pac, peripherals = true, dispatchers = [DMA1_CHANNEL1, DMA1_CHANNEL2, DMA1_CHANNEL3])]
 mod app {
+    use stm32f1xx_hal as hal;
+
     use cortex_m::asm;
     use hal::gpio::{ErasedPin, Output, PushPull};
     use hal::prelude::*;
     use hal::usb::{Peripheral, UsbBus, UsbBusType};
-    use stm32f1xx_hal as hal;
-    use systick_monotonic::fugit::*;
     use systick_monotonic::*;
     use usb_device::prelude::*;
 
@@ -43,19 +43,19 @@ mod app {
 
         let clocks = rcc
             .cfgr
-            .use_hse(8.mhz())
-            .sysclk(72.mhz())
-            .hclk(72.mhz())
-            .pclk1(36.mhz())
-            .pclk2(72.mhz())
-            .adcclk(12.mhz())
+            .use_hse(8.MHz())
+            .sysclk(72.MHz())
+            .hclk(72.MHz())
+            .pclk1(36.MHz())
+            .pclk2(72.MHz())
+            .adcclk(12.MHz())
             .freeze(&mut flash.acr);
         assert!(clocks.usbclk_valid());
 
         // Initialize the monotonic
         // #[cfg(feature = "nope")]
-        let mono = MyMono::new(cx.core.SYST, clocks.sysclk().0);
-        // mono.enable_timer();
+        // let mono = MyMono::new(cx.core.SYST, clocks.sysclk().0);
+        let mono = Systick::new(cx.core.SYST, clocks.sysclk().raw());
 
         let mut gpioa = cx.device.GPIOA.split();
         let mut gpioc = cx.device.GPIOC.split();
@@ -70,7 +70,7 @@ mod app {
         // will not reset your device when you upload new firmware.
         let mut usb_dp = gpioa.pa12.into_push_pull_output(&mut gpioa.crh);
         usb_dp.set_low();
-        asm::delay(clocks.sysclk().0 / 100);
+        asm::delay(clocks.sysclk().raw() / 100);
 
         let usb_dm = gpioa.pa11;
         let usb_dp = usb_dp.into_floating_input(&mut gpioa.crh);
