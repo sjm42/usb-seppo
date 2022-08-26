@@ -466,9 +466,9 @@ dependencies = [
 
 [[package]]
 name = "stm32f1"
-version = "0.14.0"
+version = "0.15.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "78d0d11d776bc6f165c68c67468826b33b3eabd04c3c319df5e8476dd580002d"
+checksum = "f2dc80735831c28fe85384e1e28428fb6d201f67c696e369a239ed9c5eba369d"
 dependencies = [
  "bare-metal 1.0.0",
  "cortex-m",
@@ -479,7 +479,7 @@ dependencies = [
 [[package]]
 name = "stm32f1xx-hal"
 version = "0.9.0"
-source = "git+https://github.com/stm32-rs/stm32f1xx-hal.git#5c707452ca25bb6076e3495628bf20e728c7cd94"
+source = "git+https://github.com/stm32-rs/stm32f1xx-hal.git#6c6c8c5154510b519fdf74207d5ff626accc0e39"
 dependencies = [
  "bitflags",
  "bxcan",
