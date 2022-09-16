@@ -479,7 +479,7 @@ dependencies = [
 [[package]]
 name = "stm32f1xx-hal"
 version = "0.9.0"
-source = "git+https://github.com/stm32-rs/stm32f1xx-hal.git#f063d5bef4a7bc109ac73ae8d4404b07d8c4a9e0"
+source = "git+https://github.com/stm32-rs/stm32f1xx-hal.git#aadcd213d8d088c0a42b03c5ea7b3d35eecd84ca"
 dependencies = [
  "bitflags",
  "bxcan",
