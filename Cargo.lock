@@ -315,9 +315,9 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.43"
+version = "1.0.44"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0a2ca2c61bc9f3d74d2886294ab7b9853abd9c1ad903a3ac7815c58989bb7bab"
+checksum = "7bd7356a8122b6c4a24a82b278680c73357984ca2fc79a0f9fa6dea7dced7c58"
 dependencies = [
  "unicode-ident",
 ]
@@ -479,7 +479,7 @@ dependencies = [
 [[package]]
 name = "stm32f1xx-hal"
 version = "0.9.0"
-source = "git+https://github.com/stm32-rs/stm32f1xx-hal.git#aadcd213d8d088c0a42b03c5ea7b3d35eecd84ca"
+source = "git+https://github.com/stm32-rs/stm32f1xx-hal.git#cafbac16d79da5c56bedb99b8c3f45b2c2463c38"
 dependencies = [
  "bitflags",
  "bxcan",
