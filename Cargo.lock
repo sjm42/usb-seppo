@@ -423,7 +423,7 @@ dependencies = [
 [[package]]
 name = "systick-monotonic"
 version = "1.0.1"
-source = "git+https://github.com/rtic-rs/systick-monotonic.git#c2b5f676c419c86e8df032b9833362f17bf077b3"
+source = "git+https://github.com/rtic-rs/systick-monotonic.git#da353dbc0859d99134ce9edf3cc121638a9ab3be"
 dependencies = [
  "cortex-m",
  "fugit",
