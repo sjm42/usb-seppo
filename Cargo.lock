@@ -393,7 +393,8 @@ dependencies = [
 [[package]]
 name = "stm32f1xx-hal"
 version = "0.10.0"
-source = "git+https://github.com/stm32-rs/stm32f1xx-hal.git#21c64d861c29a97753a22afdd06daaea614592c6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "30845662b9ce46a2ec04da97666a2b32458bee5032bb0452d0caf1536a96a542"
 dependencies = [
  "bitflags",
  "bxcan",
@@ -423,7 +424,8 @@ dependencies = [
 [[package]]
 name = "systick-monotonic"
 version = "1.0.1"
-source = "git+https://github.com/rtic-rs/systick-monotonic.git#da353dbc0859d99134ce9edf3cc121638a9ab3be"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "67fb822d5c615a0ae3a4795ee5b1d06381c7faf488d861c0a4fa8e6a88d5ff84"
 dependencies = [
  "cortex-m",
  "fugit",
@@ -444,7 +446,7 @@ checksum = "1f6cc3adc849b5292b4075fc0d5fdcf2f24866e88e336dd27a8943090a520508"
 
 [[package]]
 name = "usb-seppo"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "cortex-m",
  "cortex-m-rt",
